@@ -3,17 +3,18 @@ import TodoListItem from './todo-list-item';
 
 const TodoList = ({ todos }) => {
   const elements = todos.map((item) => {
-    console.log(<TodoListItem { ...item } />)
+    const {id, ...itemProps} = item;
+    console.log(<TodoListItem {...itemProps} />);
     return (
-      <li>
+      <li key={id}>
         <TodoListItem
-          { ...item } />
+          {...itemProps} />
       </li>
     )
   })
   return (
     <ul>
-      { elements }
+      {elements}
     </ul>
   )
 }
