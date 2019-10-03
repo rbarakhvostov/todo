@@ -29,18 +29,6 @@ export default class App extends Component {
     })
   }
   handleToggleImportantce = (id) => {
-    // this.setState(({todoData}) => {
-    //   const newTodoData = todoData.map((item) => {
-    //     const copyItem = {...item}
-    //     if (copyItem.id === id) {
-    //       copyItem.important = !copyItem.important;
-    //     }
-    //     return copyItem;
-    //   })
-    //   return {
-    //     todoData: newTodoData
-    //   }
-    // })
     this.setState(({todoData}) => {
       const newTodoData = this.toggleProperty(todoData, id, 'important');
       return {
@@ -50,13 +38,7 @@ export default class App extends Component {
   }
   handleToggleCompletion = (id) => {
     this.setState(({todoData}) => {
-      const newTodoData = todoData.map((item) => {
-        const copyItem = {...item}
-        if (copyItem.id === id) {
-          copyItem.done = !copyItem.done;
-        } 
-        return copyItem;
-      })
+      const newTodoData = this.toggleProperty(todoData, id, 'done'); 
       return {
         todoData: newTodoData
       }
@@ -86,7 +68,7 @@ export default class App extends Component {
     }
   }
   render() {
-    console.log(a);
+    console.log(this, a);
     
     const {todoData} = this.state;
     const doneCount = todoData.filter((item) => item.done).length;
