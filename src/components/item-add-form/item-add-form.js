@@ -5,21 +5,38 @@ export default class ItemAddForm extends Component {
   constructor() {
     super();
     this.state = {
-      text: 'Have a rest'
+      label: ''
     }
   }
-  render() {
+  handleChangeText = (event) => {
+    this.setState({
+      label: event.target.value
+    });
+  }
+  handleSubmit = (event) => {
+    event.preventDefault();
     const {onItemAdded} = this.props;
-    const {text} = this.state;
+    const {label} = this.state;
+    onItemAdded(label);
+    this.setState({
+      label: ''
+    });
+  }
+  render() {
+    console.log(1)
     return (
-      <div className='item-add-form'>
-        <button
-          className=''
-          onClick={() => onItemAdded(text)} 
-        >
+      <form className='item-add-form'
+            onSubmit={this.handleSubmit}>
+        <input className=''
+                type='text'
+                placeholder='what should be done'
+                value={this.state.label}
+                maxLength='20'
+                onChange={this.handleChangeText} />
+        <button className='' type='submit'>
           ADD
         </button>
-      </div>
+      </form>
     )
   }
 }

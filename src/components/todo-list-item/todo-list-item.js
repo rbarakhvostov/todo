@@ -1,34 +1,11 @@
 import React from 'react';
-import './todo-list-item.css'
+import './todo-list-item.css';
 
 
 const TodoListItem = (props) => {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     done: false,
-  //     important: true
-  //   }
-  // }
-  // onLabelClick = () => {
-  //   this.setState(({done}) => {
-  //     return {
-  //       done: !done
-  //     }
-  //   })
-  // }
-  // onMarkImportant = () => {
-  //   this.setState(({important}) => {
-  //     return {
-  //       important: !important
-  //     }
-  //   })
-  // }
-
   const {label, important, 
           done, onDeleted,
           onToggleImportance, onToggleComplection} = props;
-  // const {done, important} = this.state;
   let classNames = 'todo-list-item-label';
   if (done) {
     classNames += ' done';
@@ -45,7 +22,6 @@ const TodoListItem = (props) => {
       </span>
       <button
         className=""
-        // onClick={this.onMarkImportant}
         onClick={onToggleImportance}
       >
           !

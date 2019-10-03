@@ -20,13 +20,14 @@ export default class App extends Component {
     a=this.state;
   }
   toggleProperty(arr, id, propName) {
-    return arr.map((item) => {
-      const copyItem = {...item}
-      if (copyItem.id === id) {
-        copyItem[propName] = !copyItem[propName];
-      }
-      return copyItem;
-    })
+    const idx = arr.findIndex((item) => item.id === id );
+    const oldItem = arr[idx];
+    const newItem = {...oldItem, [propName]: !oldItem[propName]};
+    return [
+      ...arr.slice(0, idx),
+      newItem,
+      ...arr.slice(idx + 1)
+    ];
   }
   handleToggleImportantce = (id) => {
     this.setState(({todoData}) => {
@@ -40,7 +41,7 @@ export default class App extends Component {
     this.setState(({todoData}) => {
       const newTodoData = this.toggleProperty(todoData, id, 'done'); 
       return {
-        todoData: newTodoData
+        todoData: newTodoData,
       }
     })
   }
@@ -69,7 +70,6 @@ export default class App extends Component {
   }
   render() {
     console.log(this, a);
-    
     const {todoData} = this.state;
     const doneCount = todoData.filter((item) => item.done).length;
     const toDoCount = todoData.length - doneCount;
