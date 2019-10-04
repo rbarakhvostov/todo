@@ -10,12 +10,15 @@ export default class App extends Component {
   constructor() {
     super();
     this.newId = 100;
+    this.oldTodoData =
     this.state = {
       todoData : [
         this.createTodoItem('Drink Coffee'),
         this.createTodoItem('Make App'),
         this.createTodoItem('Have a lunch'),
       ],
+      term: '',
+      activeFilter: 'filter-all'
     }
     a=this.state;
   }
@@ -60,6 +63,17 @@ export default class App extends Component {
       }
     })
   }
+  handleSearch = (term) => {
+    this.setState({term});
+  }
+  search(items, term) {
+    if (term.length === 0) return items;
+    return items.filter((item) => {
+      return item.label
+              .toLowerCase()
+              .indexOf(term.toLowerCase()) > -1;
+    });
+  }
   createTodoItem(text) {
     return {
       label: text,
@@ -69,24 +83,24 @@ export default class App extends Component {
     }
   }
   render() {
-    console.log(this, a);
-    const {todoData} = this.state;
+    console.log(this.state);
+    const {todoData, term, activeFilter} = this.state;
+    const visibleItems = this.search(todoData, term);
     const doneCount = todoData.filter((item) => item.done).length;
     const toDoCount = todoData.length - doneCount;
     return (
       <div>
         <AppHeader toDo={toDoCount} done={doneCount} />
-        <SearchPanel />
+        <SearchPanel onSearch={this.handleSearch}/>
         <ItemStatusFilter />
         <TodoList
-          todos={todoData}
+          todos={visibleItems}
           onDeleted={(id) => {
               this.handleClickToDelete(id);
             }
           }
-          onToggleImportance={(id) => this.handleToggleImportantce(id)}
-          onToggleComplection={(id) => this.handleToggleCompletion(id)}
-        />
+          onToggleImportance={(id) => this.handleToggleImportantce(id)}           // nested 
+          onToggleComplection={(id) => this.handleToggleCompletion(id)} />
         <ItemAddForm
           onItemAdded={this.handleClickToAdd}
         />

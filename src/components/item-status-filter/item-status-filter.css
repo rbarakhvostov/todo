@@ -1,0 +1,15 @@
+
+.filter {
+  background: #ffffff;
+  border: 0;
+  cursor: pointer;
+}
+.filter-active {
+  background: #a0a1a3;
+}
+.filter:hover {
+  background: #d3d2d2
+}
+.filter-active:hover {
+  background: #a0a1a3;
+}

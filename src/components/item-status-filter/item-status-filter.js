@@ -1,14 +1,22 @@
 import React, {Component} from 'react';
-
 import './item-status-filter.css';
 
 export default class ItemStatusFilter extends Component {
   render() {
     return (
-      <div className="">
-        <button className="">All</button>
-        <button className="">Active</button>
-        <button className="">Done</button>
+      <div className='filter-wrap'>
+        <button className=''
+                type='button'>
+          All
+        </button>
+        <button className=''
+                type='button'>
+          Active
+        </button>
+        <button className=''
+                type='button'>
+          Done
+        </button>
       </div>
     )
   }
