@@ -10,7 +10,6 @@ export default class App extends Component {
   constructor() {
     super();
     this.newId = 100;
-    this.oldTodoData =
     this.state = {
       todoData : [
         this.createTodoItem('Drink Coffee'),
@@ -18,7 +17,7 @@ export default class App extends Component {
         this.createTodoItem('Have a lunch'),
       ],
       term: '',
-      activeFilter: 'filter-all'
+      filter: 'all'
     }
     a=this.state;
   }
@@ -74,6 +73,21 @@ export default class App extends Component {
               .indexOf(term.toLowerCase()) > -1;
     });
   }
+  handleFilter = (filter) => {
+    this.setState({filter});
+  }
+  filter(items, filter) {
+    switch(filter) {
+      case 'all':
+        return items;
+      case 'active':
+        return items.filter((item) => !item.done);
+      case 'done': 
+        return items.filter((item) => item.done);
+      default:
+        return items;
+    }
+  }
   createTodoItem(text) {
     return {
       label: text,
@@ -84,15 +98,15 @@ export default class App extends Component {
   }
   render() {
     console.log(this.state);
-    const {todoData, term, activeFilter} = this.state;
-    const visibleItems = this.search(todoData, term);
+    const {todoData, term, filter} = this.state;
+    const visibleItems = this.search(this.filter(todoData, filter), term);
     const doneCount = todoData.filter((item) => item.done).length;
     const toDoCount = todoData.length - doneCount;
     return (
       <div>
         <AppHeader toDo={toDoCount} done={doneCount} />
-        <SearchPanel onSearch={this.handleSearch}/>
-        <ItemStatusFilter />
+        <SearchPanel onSearch={this.handleSearch} />
+        <ItemStatusFilter onFilter={this.handleFilter} filter={filter}/>
         <TodoList
           todos={visibleItems}
           onDeleted={(id) => {
