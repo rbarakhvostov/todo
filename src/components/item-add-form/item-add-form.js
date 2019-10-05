@@ -2,15 +2,12 @@ import React, {Component} from 'react';
 import './item-add-form.css';
 
 export default class ItemAddForm extends Component {
-  constructor() {
-    super();
-    this.state = {
-      label: ''
-    }
+  state = {
+    label: '',
   }
   handleChangeText = (event) => {
     this.setState({
-      label: event.target.value
+      label: event.target.value,
     });
   }
   handleSubmit = (event) => {
@@ -19,11 +16,10 @@ export default class ItemAddForm extends Component {
     const {label} = this.state;
     onItemAdded(label);
     this.setState({
-      label: ''
+      label: '',
     });
   }
   render() {
-    console.log(1)
     return (
       <form className='item-add-form'
             onSubmit={this.handleSubmit}>

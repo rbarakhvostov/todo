@@ -5,22 +5,18 @@ import TodoList from '../todo-list';
 import ItemStatusFilter from '../item-status-filter'
 import ItemAddForm from '../item-add-form'
 
-let a;
 export default class App extends Component {
-  constructor() {
-    super();
-    this.newId = 100;
-    this.state = {
-      todoData : [
-        this.createTodoItem('Drink Coffee'),
-        this.createTodoItem('Make App'),
-        this.createTodoItem('Have a lunch'),
-      ],
-      term: '',
-      filter: 'all'
-    }
-    a=this.state;
+  newId = 100;
+  state = {
+    todoData : [
+      this.createTodoItem('Drink Coffee'),
+      this.createTodoItem('Make App'),
+      this.createTodoItem('Have a lunch'),
+    ],
+    term: '',
+    filter: 'all',
   }
+  
   toggleProperty(arr, id, propName) {
     const idx = arr.findIndex((item) => item.id === id );
     const oldItem = arr[idx];
@@ -28,19 +24,19 @@ export default class App extends Component {
     return [
       ...arr.slice(0, idx),
       newItem,
-      ...arr.slice(idx + 1)
+      ...arr.slice(idx + 1),
     ];
   }
   handleToggleImportantce = (id) => {
-    this.setState(({todoData}) => {
+    this.setState(({ todoData }) => {
       const newTodoData = this.toggleProperty(todoData, id, 'important');
       return {
-        todoData: newTodoData
+        todoData: newTodoData,
       }
     })
   }
   handleToggleCompletion = (id) => {
-    this.setState(({todoData}) => {
+    this.setState(({ todoData }) => {
       const newTodoData = this.toggleProperty(todoData, id, 'done'); 
       return {
         todoData: newTodoData,
@@ -48,17 +44,17 @@ export default class App extends Component {
     })
   }
   handleClickToDelete = (id) => {
-    this.setState(({todoData}) => {
+    this.setState(({ todoData }) => {
       return {
-        todoData: todoData.filter(item => item.id !== id)
+        todoData: todoData.filter(item => item.id !== id),
       }
     })
   }
-  handleClickToAdd = (text) => {
-    const newItem = this.createTodoItem(text);
-    this.setState(({todoData}) => {
+  handleClickToAdd = (label) => {
+    const newItem = this.createTodoItem(label);
+    this.setState(({ todoData }) => {
       return {
-        todoData: [...todoData, newItem]
+        todoData: [...todoData, newItem],
       }
     })
   }
@@ -88,17 +84,16 @@ export default class App extends Component {
         return items;
     }
   }
-  createTodoItem(text) {
+  createTodoItem(label) {
     return {
-      label: text,
+      label,
       important: false,
       done: false,
-      id: this.newId++
+      id: ++this.newId,
     }
   }
   render() {
-    console.log(this.state);
-    const {todoData, term, filter} = this.state;
+    const { todoData, term, filter } = this.state;
     const visibleItems = this.search(this.filter(todoData, filter), term);
     const doneCount = todoData.filter((item) => item.done).length;
     const toDoCount = todoData.length - doneCount;
@@ -108,13 +103,10 @@ export default class App extends Component {
         <SearchPanel onSearch={this.handleSearch} />
         <ItemStatusFilter onFilter={this.handleFilter} filter={filter}/>
         <TodoList
-          todos={visibleItems}
-          onDeleted={(id) => {
-              this.handleClickToDelete(id);
-            }
-          }
-          onToggleImportance={(id) => this.handleToggleImportantce(id)}           // nested 
-          onToggleComplection={(id) => this.handleToggleCompletion(id)} />
+          todoData={visibleItems}
+          onDeleted={this.handleClickToDelete}
+          onToggleImportance={this.handleToggleImportantce}
+          onToggleComplection={this.handleToggleCompletion} />
         <ItemAddForm
           onItemAdded={this.handleClickToAdd}
         />
