@@ -3,9 +3,9 @@ import './item-status-filter.css';
 
 export default class ItemStatusFilter extends Component {
   buttons = [
-    {name: 'all', label: 'All'}, 
-    {name: 'active', label: 'Active'},
-    {name: 'done', label: 'Done'},
+    {name: 'all', label: 'ALL'}, 
+    {name: 'active', label: 'ACTIVE'},
+    {name: 'done', label: 'DONE'},
   ];
   render() {
     const { onFilter, filter } = this.props;

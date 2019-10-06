@@ -12,9 +12,7 @@ export default class ItemAddForm extends Component {
   }
   handleSubmit = (event) => {
     event.preventDefault();
-    const {onItemAdded} = this.props;
-    const {label} = this.state;
-    onItemAdded(label);
+    this.props.onItemAdded(this.state.label);
     this.setState({
       label: '',
     });
@@ -23,14 +21,14 @@ export default class ItemAddForm extends Component {
     return (
       <form className='item-add-form'
             onSubmit={this.handleSubmit}>
-        <input className=''
+        <input className='form-input'
                 type='text'
                 placeholder='what should be done'
                 value={this.state.label}
-                maxLength='20'
+                maxLength='30'
                 onChange={this.handleChangeText} />
-        <button className='' type='submit'>
-          ADD
+        <button className='form-button' type='submit'>
+          <span className="fa fa-plus"></span>
         </button>
       </form>
     )

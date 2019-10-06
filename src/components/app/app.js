@@ -3,16 +3,13 @@ import AppHeader from '../app-header';
 import SearchPanel from '../search-panel';
 import TodoList from '../todo-list';
 import ItemStatusFilter from '../item-status-filter'
-import ItemAddForm from '../item-add-form'
+import ItemAddForm from '../item-add-form';
+import './app.css';
 
 export default class App extends Component {
   newId = 100;
   state = {
-    todoData : [
-      this.createTodoItem('Drink Coffee'),
-      this.createTodoItem('Make App'),
-      this.createTodoItem('Have a lunch'),
-    ],
+    todoData : [],
     term: '',
     filter: 'all',
   }
@@ -98,12 +95,12 @@ export default class App extends Component {
     const doneCount = todoData.filter((item) => item.done).length;
     const toDoCount = todoData.length - doneCount;
     return (
-      <div>
+      <div className='app'>
         <AppHeader toDo={toDoCount} done={doneCount} />
         <SearchPanel onSearch={this.handleSearch} />
         <ItemStatusFilter onFilter={this.handleFilter} filter={filter}/>
         <TodoList
-          todoData={visibleItems}
+          todoItems={visibleItems}
           onDeleted={this.handleClickToDelete}
           onToggleImportance={this.handleToggleImportantce}
           onToggleComplection={this.handleToggleCompletion} />

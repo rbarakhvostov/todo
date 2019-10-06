@@ -1,15 +1,13 @@
-
+.filter-wrap {
+  margin-top: 1em;
+}
 .filter {
-  background: #ffffff;
-  border: 0;
-  cursor: pointer;
+  height: 2em;
 }
 .filter-active {
-  background: #a0a1a3;
-}
-.filter:hover {
-  background: #d3d2d2
+  background: #1389c0;
+  color: white;
 }
 .filter-active:hover {
-  background: #a0a1a3;
+  background: #1389c0;
 }

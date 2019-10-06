@@ -1,0 +1,17 @@
+.item-add-form {
+  margin: 1em 0;
+}
+.form-input,
+.form-button {
+  height: 1.5em;
+}
+.form-input {
+  margin-right: .5em;
+}
+.form-button {
+  background: none;
+}
+.form-button:hover {
+  background: none;
+  color: #1389c0;
+}

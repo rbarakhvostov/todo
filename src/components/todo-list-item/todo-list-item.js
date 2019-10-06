@@ -13,23 +13,23 @@ const TodoListItem = ({label, important,
     classNames += ' important';
   }
   return (
-    <div className="todo-list-item">
+    <li className='todo-list-item'>
       <span className={classNames} onClick={onToggleComplection}>
         { label }
       </span>
-      <button
-        className=""
-        onClick={onToggleImportance}
-      >
-          !
+      <div className='wrap-btn-item'>
+        <button className="btn-item"
+                type='button'
+                onClick={onToggleImportance}>
+          <span className="fa fa-exclamation"></span>
         </button>
-      <button
-        className=""
-        onClick={onDeleted}
-      >
-          -
-      </button>
-    </div>
+        <button className="btn-item"
+                type='button'
+                onClick={onDeleted}>
+           <span className="fa fa-trash-o"></span>
+        </button>
+      </div>
+    </li>
   )
 }
 
