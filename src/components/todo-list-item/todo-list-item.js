@@ -13,19 +13,27 @@ const TodoListItem = ({label, important,
     classNames += ' important';
   }
   return (
-    <li className='todo-list-item'>
-      <span className={classNames} onClick={onToggleComplection}>
+    <li className='todo-list-item' onClick={onToggleComplection}>
+      <span className={classNames}>
         { label }
       </span>
       <div className='wrap-btn-item'>
-        <button className="btn-item"
+        <button className="todo-list-item-button"
                 type='button'
-                onClick={onToggleImportance}>
+                onClick={
+                  (event) => {
+                    onToggleImportance();
+                    event.stopPropagation();
+                  }}>
           <span className="fa fa-exclamation"></span>
         </button>
-        <button className="btn-item"
+        <button className="todo-list-item-button"
                 type='button'
-                onClick={onDeleted}>
+                onClick={
+                  (event) => {
+                    onDeleted();
+                    event.stopPropagation();
+                  }}>
            <span className="fa fa-trash-o"></span>
         </button>
       </div>

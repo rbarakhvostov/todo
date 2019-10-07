@@ -2,7 +2,7 @@
   margin-top: 1em;
 }
 .filter {
-  height: 2em;
+  width: initial;
 }
 .filter-active {
   background: #1389c0;

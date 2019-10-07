@@ -25,7 +25,7 @@ export default class ItemAddForm extends Component {
                 type='text'
                 placeholder='what should be done'
                 value={this.state.label}
-                maxLength='30'
+                maxLength='20'
                 onChange={this.handleChangeText} />
         <button className='form-button' type='submit'>
           <span className="fa fa-plus"></span>
