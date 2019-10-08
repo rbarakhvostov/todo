@@ -14,7 +14,6 @@
 }
 .todo-list-item-label {
   margin-right: .3em;
-  font-size: 1.3rem;
 }
 .todo-list-item:last-child {
   margin-bottom: 0;
@@ -26,25 +25,19 @@
   font-weight: 700;
   color: #1389c0;
 }
-@media (max-width: 484px) {
-  .todo-list-item-label {
-    font-size: 1.1rem;
-  }
-  .todo-list-item-button {
-    font-size: 0.9rem;
-  }
+.wrap-todo-list-item-button {
+  display: flex;
+  flex-direction: column;
 }
-@media (max-width: 415px) {
-  .todo-list-item-label {
-    font-size: 1rem;
-  }
+.todo-list-item-button:last-child {
+  margin-top: .5em;
 }
-@media (max-width: 383px) {
+@media (max-width: 400px) {
   .todo-list-item-label {
     font-size: 0.9rem;
   }
 }
-@media (max-width: 352px) {
+@media (max-width: 360px) {
   .todo-list-item-label {
     font-size: 0.8rem;
   }

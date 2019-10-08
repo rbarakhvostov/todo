@@ -17,7 +17,7 @@ const TodoListItem = ({label, important,
       <span className={classNames}>
         { label }
       </span>
-      <div className='wrap-btn-item'>
+      <div className='wrap-todo-list-item-button'>
         <button className="todo-list-item-button"
                 type='button'
                 onClick={

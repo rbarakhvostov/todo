@@ -19,7 +19,6 @@ button {
   width: 1.5em;
   height: 1.5em;
   border: 0;
-  border-right: 1px solid #000000;
   font-size: 1rem;
   background: #b6b7b8;
   outline: none;
@@ -28,7 +27,4 @@ button {
 button:hover {
   background: #1389c0;
   color: #ffffff;
-}
-button:last-child {
-  border-right: 0
 }
