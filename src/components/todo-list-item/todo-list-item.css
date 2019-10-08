@@ -26,7 +26,7 @@
   font-weight: 700;
   color: #1389c0;
 }
-@media (max-width: 434px) {
+@media (max-width: 484px) {
   .todo-list-item-label {
     font-size: 1.1rem;
   }
@@ -34,8 +34,18 @@
     font-size: 0.9rem;
   }
 }
-@media (max-width: 374px) {
+@media (max-width: 415px) {
+  .todo-list-item-label {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 383px) {
   .todo-list-item-label {
     font-size: 0.9rem;
+  }
+}
+@media (max-width: 352px) {
+  .todo-list-item-label {
+    font-size: 0.8rem;
   }
 }
