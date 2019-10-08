@@ -32,13 +32,13 @@
 .todo-list-item-button:last-child {
   margin-top: .5em;
 }
-@media (max-width: 400px) {
+@media (max-width: 420px) {
   .todo-list-item-label {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 }
-@media (max-width: 360px) {
+@media (max-width: 370px) {
   .todo-list-item-label {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 }
