@@ -50,7 +50,7 @@ export default class App extends Component {
   handleClickToAdd = (label) => {
     if (label.length === 0) { 
       alert('new item has no value');
-      return;
+      return
     }
     const newItem = this.createTodoItem(label);
     this.setState(({ todoData }) => {
