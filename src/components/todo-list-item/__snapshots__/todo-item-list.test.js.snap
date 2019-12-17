@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<App /> TodoListItem renders without crashing 1`] = `
+exports[`TodoListItem /> TodoListItem renders without crashing 1`] = `
 <TodoListItem>
   <li
     className="todo-list-item"
@@ -13,6 +13,7 @@ exports[`<App /> TodoListItem renders without crashing 1`] = `
     >
       <button
         className="todo-list-item-button"
+        id="exclamation-button"
         onClick={[Function]}
         type="button"
       >
@@ -22,6 +23,7 @@ exports[`<App /> TodoListItem renders without crashing 1`] = `
       </button>
       <button
         className="todo-list-item-button"
+        id="trash-button"
         onClick={[Function]}
         type="button"
       >

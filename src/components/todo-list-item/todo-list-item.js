@@ -18,23 +18,25 @@ const TodoListItem = ({label, important,
         { label }
       </span>
       <div className='wrap-todo-list-item-button'>
-        <button className="todo-list-item-button"
+        <button id='exclamation-button'
+                className='todo-list-item-button'
                 type='button'
                 onClick={
                   (event) => {
                     onToggleImportance();
                     event.stopPropagation();
                   }}>
-          <span className="fa fa-exclamation"></span>
+          <span className='fa fa-exclamation'></span>
         </button>
-        <button className="todo-list-item-button"
+        <button id='trash-button'
+                className='todo-list-item-button'
                 type='button'
                 onClick={
                   (event) => {
                     onDeleted();
                     event.stopPropagation();
                   }}>
-           <span className="fa fa-trash-o"></span>
+           <span className='fa fa-trash-o'></span>
         </button>
       </div>
     </li>
