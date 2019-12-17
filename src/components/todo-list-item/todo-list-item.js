@@ -1,7 +1,7 @@
 import React from 'react';
 import './todo-list-item.css';
 
-const TodoListItem = ({label, important, 
+const TodoListItem = ({label, important,
   done, onDeleted,
   onToggleImportance, onToggleComplection}) => {
   

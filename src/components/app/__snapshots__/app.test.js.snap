@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> App renders without crashing 1`] = `
+<App>
+  <div
+    className="app"
+  >
+    <AppHeader
+      done={0}
+      toDo={0}
+    >
+      <div
+        className="app-header"
+      >
+        <h1>
+          Todo App
+        </h1>
+        <h2
+          className="todo-info"
+        >
+          0
+           active, 
+          0
+           done
+        </h2>
+      </div>
+    </AppHeader>
+    <SearchPanel
+      onSearch={[Function]}
+    >
+      <input
+        className="search-input"
+        onChange={[Function]}
+        placeholder="search"
+        type="text"
+        value=""
+      />
+    </SearchPanel>
+    <ItemStatusFilter
+      filter="all"
+      onFilter={[Function]}
+    >
+      <div
+        className="filter-wrap"
+      >
+        <button
+          className="filter filter-active"
+          key="all"
+          onClick={[Function]}
+          type="button"
+        >
+          ALL
+        </button>
+        <button
+          className="filter"
+          key="active"
+          onClick={[Function]}
+          type="button"
+        >
+          ACTIVE
+        </button>
+        <button
+          className="filter"
+          key="done"
+          onClick={[Function]}
+          type="button"
+        >
+          DONE
+        </button>
+      </div>
+    </ItemStatusFilter>
+    <TodoList
+      onDeleted={[Function]}
+      onToggleComplection={[Function]}
+      onToggleImportance={[Function]}
+      todoItems={Array []}
+    >
+      <ul
+        className="todo-list"
+      />
+    </TodoList>
+    <ItemAddForm
+      onItemAdded={[Function]}
+    >
+      <form
+        className="item-add-form"
+        onSubmit={[Function]}
+      >
+        <input
+          className="form-input"
+          maxLength="20"
+          onChange={[Function]}
+          placeholder="what should be done"
+          type="text"
+          value=""
+        />
+        <button
+          className="form-button"
+          type="submit"
+        >
+          <span
+            className="fa fa-plus"
+          />
+        </button>
+      </form>
+    </ItemAddForm>
+  </div>
+</App>
+`;
