@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import App from '../app';
 
-describe('Adding items', () => {
+describe('<ItemAddForm />', () => {
   
   const wrapper = mount(<App />);
   window.alert = jest.fn();
