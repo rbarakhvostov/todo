@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoListItem /> TodoListItem renders without crashing 1`] = `
+<TodoListItem>
+  <li
+    className="todo-list-item"
+  >
+    <span
+      className="todo-list-item-label"
+    />
+    <div
+      className="wrap-todo-list-item-button"
+    >
+      <button
+        className="todo-list-item-button"
+        id="exclamation-button"
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="fa fa-exclamation"
+        />
+      </button>
+      <button
+        className="todo-list-item-button"
+        id="trash-button"
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="fa fa-trash-o"
+        />
+      </button>
+    </div>
+  </li>
+</TodoListItem>
+`;
