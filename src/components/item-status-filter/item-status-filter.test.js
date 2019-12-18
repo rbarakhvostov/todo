@@ -5,10 +5,12 @@ import App from '../app';
 describe('<ItemStatusFilter />', () => {
   
   const wrapper = mount(<App />);
+
   const event1 = { target: { value: 'Create item 1' } };
   const event2 = { target: { value: 'Create item 2' } };
   const event3 = { target: { value: 'Create item 3' } };
   const event4 = { target: { value: 'Create item 4' } };
+
   wrapper.find('.form-input').simulate('change', event1);
   wrapper.find('.item-add-form').simulate('submit');
   wrapper.find('.form-input').simulate('change', event2);
