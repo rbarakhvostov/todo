@@ -29,4 +29,11 @@ describe('TodoListItem />', () => {
     wrapper.find('#exclamation-button').simulate('click');
     expect(wrapper.find('.todo-list-item-label').hasClass('important')).toBe(false);
   });
+
+  it ('Toggle completion works correctly', () => {
+    wrapper.find('.todo-list-item').simulate('click');
+    expect(wrapper.find('.todo-list-item-label').hasClass('done')).toBe(true);
+    wrapper.find('.todo-list-item').simulate('click');
+    expect(wrapper.find('.todo-list-item-label').hasClass('done')).toBe(false);
+  });
 });
