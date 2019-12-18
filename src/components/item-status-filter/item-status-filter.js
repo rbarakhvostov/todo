@@ -5,17 +5,17 @@ export default class ItemStatusFilter extends Component {
   buttons = [
     {name: 'all', label: 'ALL'}, 
     {name: 'active', label: 'ACTIVE'},
-    {name: 'done', label: 'DONE'},
+    {name: 'done', label: 'DONE'}
   ];
   render() {
     const { onFilter, filter } = this.props;
     const buttons = this.buttons.map(({ name, label }) => {
       const className = name === filter ? 'filter filter-active' : 'filter';
       return (
-        <button className={className}
+        <button className={ className }
                 type='button'
-                key={name}
-                onClick={() => onFilter(name)}>
+                key={ name }
+                onClick={ () => onFilter(name) }>
           { label }
         </button>
       )
@@ -24,6 +24,6 @@ export default class ItemStatusFilter extends Component {
       <div className='filter-wrap'>
         { buttons }
       </div>
-    )
+    );
   }
 }

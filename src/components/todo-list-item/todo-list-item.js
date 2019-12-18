@@ -1,20 +1,24 @@
 import React from 'react';
+
 import './todo-list-item.css';
 
-const TodoListItem = ({label, important,
+const TodoListItem = ({ label, important,
   done, onDeleted,
-  onToggleImportance, onToggleComplection}) => {
+  onToggleImportance, onToggleComplection }) => {
   
   let classNames = 'todo-list-item-label';
+
   if (done) {
-    classNames += ' done';
+    classNames = `${classNames} done`;
   }
+
   if (important) {
-    classNames += ' important';
+    classNames = `${classNames} important`;
   }
+
   return (
-    <li className='todo-list-item' onClick={onToggleComplection}>
-      <span className={classNames}>
+    <li className='todo-list-item' onClick={ onToggleComplection }>
+      <span className={ classNames }>
         { label }
       </span>
       <div className='wrap-todo-list-item-button'>
@@ -40,7 +44,7 @@ const TodoListItem = ({label, important,
         </button>
       </div>
     </li>
-  )
+  );
 }
 
 export default TodoListItem;

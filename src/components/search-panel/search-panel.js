@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
+
 import './search-panel.css';
+
 export default class SearchPanel extends Component {
   state = {
-    term: '',
+    term: ''
   }
   onSearch = (event) => {
     const term = event.target.value;
-    this.setState({term,});
+    this.setState({ term });
     this.props.onSearch(term);
   }
   render() {
@@ -14,9 +16,8 @@ export default class SearchPanel extends Component {
       <input className='search-input'
               type='text'
               placeholder='search'
-              value={this.state.term}
-              onChange={this.onSearch} />
+              value={ this.state.term }
+              onChange={ this.onSearch } />
     );
   }
 }
-

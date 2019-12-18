@@ -21,31 +21,31 @@ export default class App extends Component {
     return [
       ...arr.slice(0, idx),
       newItem,
-      ...arr.slice(idx + 1),
+      ...arr.slice(idx + 1)
     ];
   }
   handleToggleImportantce = (id) => {
     this.setState(({ todoData }) => {
       const newTodoData = this.toggleProperty(todoData, id, 'important');
       return {
-        todoData: newTodoData,
+        todoData: newTodoData
       }
-    })
+    });
   }
   handleToggleCompletion = (id) => {
     this.setState(({ todoData }) => {
       const newTodoData = this.toggleProperty(todoData, id, 'done'); 
       return {
-        todoData: newTodoData,
+        todoData: newTodoData
       }
-    })
+    });
   }
   handleClickToDelete = (id) => {
     this.setState(({ todoData }) => {
       return {
-        todoData: todoData.filter(item => item.id !== id),
+        todoData: todoData.filter(item => item.id !== id)
       }
-    })
+    });
   }
   handleClickToAdd = (label) => {
     if (label.length === 0) { 
@@ -57,7 +57,7 @@ export default class App extends Component {
       return {
         todoData: [...todoData, newItem],
       }
-    })
+    });
   }
   handleSearch = (term) => {
     this.setState({term});
@@ -112,6 +112,6 @@ export default class App extends Component {
           onItemAdded={this.handleClickToAdd}
         />
       </div>
-    )
+    );
   }
 }

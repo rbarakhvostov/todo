@@ -3,34 +3,34 @@ import './item-add-form.css';
 
 export default class ItemAddForm extends Component {
   state = {
-    label: '',
+    label: ''
   }
   handleChangeText = (event) => {
     this.setState({
-      label: event.target.value,
+      label: event.target.value
     });
   }
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.onItemAdded(this.state.label);
     this.setState({
-      label: '',
+      label: ''
     });
   }
   render() {
     return (
       <form className='item-add-form'
-            onSubmit={this.handleSubmit}>
+            onSubmit={ this.handleSubmit }>
         <input className='form-input'
                 type='text'
                 placeholder='what should be done'
-                value={this.state.label}
+                value={ this.state.label }
                 maxLength='20'
-                onChange={this.handleChangeText} />
+                onChange={ this.handleChangeText } />
         <button className='form-button' type='submit'>
           <span className="fa fa-plus"></span>
         </button>
       </form>
-    )
+    );
   }
 }
