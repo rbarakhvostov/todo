@@ -1,15 +1,9 @@
 .item-add-form {
-  margin: 1em 0;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1em;
 }
-.form-input {
-  width: 15em;
-  height: 2em;
-  margin-right: .5em;
-}
-.form-button,
-.form-button:hover {
-  background: none;
-}
-.form-button:hover {
-  color: #1389c0;
+.item-add-form-input {
+  width: 85%;
 }

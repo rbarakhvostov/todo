@@ -1,6 +1,7 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import App from '../app';
+import ItemStatusFilter from './item-status-filter';
 
 describe('<ItemStatusFilter />', () => {
   
@@ -11,13 +12,13 @@ describe('<ItemStatusFilter />', () => {
   const event3 = { target: { value: 'Create item 3' } };
   const event4 = { target: { value: 'Create item 4' } };
 
-  wrapper.find('.form-input').simulate('change', event1);
+  wrapper.find('.item-add-form-input').simulate('change', event1);
   wrapper.find('.item-add-form').simulate('submit');
-  wrapper.find('.form-input').simulate('change', event2);
+  wrapper.find('.item-add-form-input').simulate('change', event2);
   wrapper.find('.item-add-form').simulate('submit');
-  wrapper.find('.form-input').simulate('change', event3);
+  wrapper.find('.item-add-form-input').simulate('change', event3);
   wrapper.find('.item-add-form').simulate('submit');
-  wrapper.find('.form-input').simulate('change', event4);
+  wrapper.find('.item-add-form-input').simulate('change', event4);
   wrapper.find('.item-add-form').simulate('submit');
 
   wrapper.find('.todo-list-item').at(0).simulate('click');
@@ -45,6 +46,15 @@ describe('<ItemStatusFilter />', () => {
     () => {
       wrapper.find('.filter-wrap').children().at(0).simulate('click');
       expect(wrapper.find('.todo-list-item').length).toBe(4);
+    }
+  );
+
+  it('Check click',
+    () => {
+      const mockCallBack = jest.fn();
+      const wrapper = shallow(<ItemStatusFilter onFilter={mockCallBack} />);
+      wrapper.find('.filter-wrap').children().at(1).simulate('click');
+      expect(mockCallBack.mock.calls.length).toBe(1);
     }
   );
 });

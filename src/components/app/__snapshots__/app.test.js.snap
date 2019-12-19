@@ -29,7 +29,7 @@ exports[`<App /> App renders without crashing 1`] = `
       onSearch={[Function]}
     >
       <input
-        className="search-input"
+        className="search-input form-control"
         onChange={[Function]}
         placeholder="search"
         type="text"
@@ -41,10 +41,10 @@ exports[`<App /> App renders without crashing 1`] = `
       onFilter={[Function]}
     >
       <div
-        className="filter-wrap"
+        className="filter-wrap btn-group"
       >
         <button
-          className="filter filter-active"
+          className="filter active btn btn-outline-primary btn-lg"
           key="all"
           onClick={[Function]}
           type="button"
@@ -52,7 +52,7 @@ exports[`<App /> App renders without crashing 1`] = `
           ALL
         </button>
         <button
-          className="filter"
+          className="filter btn btn-outline-primary btn-lg"
           key="active"
           onClick={[Function]}
           type="button"
@@ -60,7 +60,7 @@ exports[`<App /> App renders without crashing 1`] = `
           ACTIVE
         </button>
         <button
-          className="filter"
+          className="filter btn btn-outline-primary btn-lg"
           key="done"
           onClick={[Function]}
           type="button"
@@ -76,7 +76,7 @@ exports[`<App /> App renders without crashing 1`] = `
       todoItems={Array []}
     >
       <ul
-        className="todo-list"
+        className="todo-list list-group"
       />
     </TodoList>
     <ItemAddForm
@@ -87,15 +87,15 @@ exports[`<App /> App renders without crashing 1`] = `
         onSubmit={[Function]}
       >
         <input
-          className="form-input"
-          maxLength="20"
+          className="item-add-form-input form-control"
+          maxLength="25"
           onChange={[Function]}
           placeholder="what should be done"
           type="text"
           value=""
         />
         <button
-          className="form-button"
+          className="item-add-form-button btn btn-outline-primary"
           type="submit"
         >
           <span

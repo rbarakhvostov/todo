@@ -3,15 +3,5 @@
 }
 .filter {
   width: initial;
-  border-right: 1px solid #000000;
-}
-.filter:last-child {
-  border: 0;
-}
-.filter-active {
-  background: #1389c0;
-  color: #ffffff;
-}
-.filter-active:hover {
-  background: #1389c0;
+  font-size: 0.8em;
 }

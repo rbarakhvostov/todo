@@ -2,43 +2,24 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.4em;
-  border-bottom: 1px solid #d5d5d6;
-  cursor: pointer;
 }
 .todo-list-item:hover {
   background: #f2f4f5;
 }
-.todo-list-item:first-child {
-  border-top: 1px solid #d5d5d6;
-}
-.todo-list-item-label {
-  margin-right: .3em;
-}
-.todo-list-item:last-child {
-  margin-bottom: 0;
-}
-.todo-list-item-label.done {
-  text-decoration: line-through;
-}
-.todo-list-item-label.important {
-  font-weight: 700;
-  color: #1389c0;
+.todo-list-item.important {
+  background: #ffd373;
 }
 .wrap-todo-list-item-button {
+  width: 15%;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
 }
-.todo-list-item-button:last-child {
-  margin-top: .5em;
+.todo-list-item-button {
+  width: 48%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-@media (max-width: 420px) {
-  .todo-list-item-label {
-    font-size: 0.85rem;
-  }
-}
-@media (max-width: 370px) {
-  .todo-list-item-label {
-    font-size: 0.7rem;
-  }
+.todo-list-item-label.done {
+  text-decoration: line-through; 
 }

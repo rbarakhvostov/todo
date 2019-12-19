@@ -4,6 +4,7 @@ import SearchPanel from '../search-panel';
 import TodoList from '../todo-list';
 import ItemStatusFilter from '../item-status-filter'
 import ItemAddForm from '../item-add-form';
+
 import './app.css';
 
 export default class App extends Component {
@@ -60,7 +61,7 @@ export default class App extends Component {
     });
   }
   handleSearch = (term) => {
-    this.setState({term});
+    this.setState({ term });
   }
   search(items, term) {
     if (term.length === 0) return items;

@@ -13,7 +13,7 @@ export default class SearchPanel extends Component {
   }
   render() {
     return (
-      <input className='search-input'
+      <input className='search-input form-control'
               type='text'
               placeholder='search'
               value={ this.state.term }

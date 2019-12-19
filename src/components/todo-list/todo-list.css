@@ -1,6 +1,30 @@
 .todo-list {
-  width: 90%;
-  padding: 0;
+  width: 97%;
   margin-top: 1em;
-  list-style: none;
+  cursor: pointer;
+}
+@media (max-width: 545px) {
+  .todo-list {
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 495px) {
+  .todo-list {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 445px) {
+  .todo-list {
+    font-size: 0.7rem;
+  }
+}
+@media (max-width: 395px) {
+  .todo-list {
+    font-size: 0.6rem;
+  }
+}
+@media (max-width: 345px) {
+  .todo-list {
+    font-size: 0.55rem;
+  }
 }

@@ -21,13 +21,14 @@ export default class ItemAddForm extends Component {
     return (
       <form className='item-add-form'
             onSubmit={ this.handleSubmit }>
-        <input className='form-input'
+        <input className='item-add-form-input form-control'
                 type='text'
                 placeholder='what should be done'
                 value={ this.state.label }
-                maxLength='20'
+                maxLength='25'
                 onChange={ this.handleChangeText } />
-        <button className='form-button' type='submit'>
+        <button className='item-add-form-button btn btn-outline-primary'
+                type='submit'>
           <span className="fa fa-plus"></span>
         </button>
       </form>
