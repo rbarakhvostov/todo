@@ -13,5 +13,13 @@ describe('<Header />', () => {
     wrapper.find('.item-add-form-input').simulate('change', event2);
     wrapper.find('.item-add-form').simulate('submit');
     expect(wrapper.find(".todo-info").text()).toEqual("2 active, 0 done");
+    wrapper.find('.todo-list-item').at(0).simulate('click');
+    expect(wrapper.find(".todo-info").text()).toEqual("1 active, 1 done");
+    wrapper.find('.todo-list-item').at(1).simulate('click');
+    expect(wrapper.find(".todo-info").text()).toEqual("0 active, 2 done");
+    wrapper.find('.todo-list-item').at(0).simulate('click');
+    expect(wrapper.find(".todo-info").text()).toEqual("1 active, 1 done");
+    wrapper.find('.todo-list-item').at(1).simulate('click');
+    expect(wrapper.find(".todo-info").text()).toEqual("2 active, 0 done");
   });
 });
