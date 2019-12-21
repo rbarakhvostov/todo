@@ -77,7 +77,7 @@ export default class App extends Component {
   }
 
   search(items, term) {
-    if (term.length === 0) return items;
+    if (!term.length) return items;
     return items.filter((item) => {
       return item.label
               .toLowerCase()
