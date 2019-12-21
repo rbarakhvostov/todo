@@ -8,11 +8,11 @@ import ItemAddForm from '../item-add-form';
 import './app.css';
 
 export default class App extends Component {
-  newId = 100;
+  newId = localStorage.getItem('todoItemId') || 100;
   state = {
-    todoData : [],
+    todoData : JSON.parse(localStorage.getItem('todoData')) || [],
     term: '',
-    filter: 'all',
+    filter: 'all'
   }
   
   toggleProperty(arr, id, propName) {
@@ -25,44 +25,57 @@ export default class App extends Component {
       ...arr.slice(idx + 1)
     ];
   }
+
   handleToggleImportantce = (id) => {
     this.setState(({ todoData }) => {
       const newTodoData = this.toggleProperty(todoData, id, 'important');
+      localStorage.setItem('todoData', JSON.stringify(newTodoData));
       return {
         todoData: newTodoData
       }
     });
   }
+
   handleToggleCompletion = (id) => {
     this.setState(({ todoData }) => {
       const newTodoData = this.toggleProperty(todoData, id, 'done'); 
+      localStorage.setItem('todoData', JSON.stringify(newTodoData));
       return {
         todoData: newTodoData
       }
     });
   }
+
   handleClickToDelete = (id) => {
     this.setState(({ todoData }) => {
+      const newTodoData = todoData.filter(item => item.id !== id);
+      localStorage.setItem('todoData', JSON.stringify(newTodoData));
       return {
-        todoData: todoData.filter(item => item.id !== id)
+        todoData: newTodoData
       }
     });
   }
+
   handleClickToAdd = (label) => {
-    if (label.length === 0) { 
+    if (!label.length) { 
       alert('new item has no value');
-      return
+      return;
     }
     const newItem = this.createTodoItem(label);
+    localStorage.setItem('todoItemId', this.newId);
     this.setState(({ todoData }) => {
+      const newTodoData = [...todoData, newItem];
+      localStorage.setItem('todoData', JSON.stringify(newTodoData));
       return {
-        todoData: [...todoData, newItem],
+        todoData: newTodoData
       }
     });
   }
+
   handleSearch = (term) => {
     this.setState({ term });
   }
+
   search(items, term) {
     if (term.length === 0) return items;
     return items.filter((item) => {
@@ -71,9 +84,11 @@ export default class App extends Component {
               .indexOf(term.toLowerCase()) > -1;
     });
   }
+
   handleFilter = (filter) => {
-    this.setState({filter});
+    this.setState({ filter });
   }
+
   filter(items, filter) {
     switch(filter) {
       case 'all':
@@ -86,14 +101,16 @@ export default class App extends Component {
         return items;
     }
   }
+
   createTodoItem(label) {
     return {
       label,
       important: false,
       done: false,
-      id: ++this.newId,
+      id: ++this.newId
     }
   }
+
   render() {
     const { todoData, term, filter } = this.state;
     const visibleItems = this.search(this.filter(todoData, filter), term);
@@ -101,16 +118,16 @@ export default class App extends Component {
     const toDoCount = todoData.length - doneCount;
     return (
       <div className='app'>
-        <AppHeader toDo={toDoCount} done={doneCount} />
-        <SearchPanel onSearch={this.handleSearch} />
-        <ItemStatusFilter onFilter={this.handleFilter} filter={filter}/>
+        <AppHeader toDo={ toDoCount } done={ doneCount } />
+        <SearchPanel onSearch={ this.handleSearch } />
+        <ItemStatusFilter onFilter={ this.handleFilter } filter={ filter } />
         <TodoList
-          todoItems={visibleItems}
-          onDeleted={this.handleClickToDelete}
-          onToggleImportance={this.handleToggleImportantce}
-          onToggleComplection={this.handleToggleCompletion} />
+          todoItems={ visibleItems }
+          onDeleted={ this.handleClickToDelete }
+          onToggleImportance={ this.handleToggleImportantce }
+          onToggleComplection={ this.handleToggleCompletion } />
         <ItemAddForm
-          onItemAdded={this.handleClickToAdd}
+          onItemAdded={ this.handleClickToAdd }
         />
       </div>
     );

@@ -6,9 +6,6 @@ const TodoListItem = ({ label, important,
   done, onDeleted,
   onToggleImportance, onToggleComplection }) => {
   
-  // let classNamesItem = 'todo-list-item';
-  // let classNamesItemLabel = 'todo-list-item-label';
-
   let classNamesItem = important
                         ? 'todo-list-item important'
                         : 'todo-list-item';
@@ -16,14 +13,6 @@ const TodoListItem = ({ label, important,
   let classNamesItemLabel = done
                               ? 'todo-list-item-label done'
                               : 'todo-list-item-label';
-
-  // if (done) {
-  //   classNamesItemLabel = `${classNamesItemLabel} done`;
-  // }
-
-  // if (important) {
-  //   classNamesItem = `${classNamesItem} important`;
-  // }
 
   return (
     <li className={`${classNamesItem} list-group-item`}
