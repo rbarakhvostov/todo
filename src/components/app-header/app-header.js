@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './app-header.css';
 
 const AppHeader = ({ toDo, done }) => {
@@ -7,7 +8,7 @@ const AppHeader = ({ toDo, done }) => {
       <h1>Todo App</h1>
       <h2 className='todo-info'>{ toDo } active, { done } done</h2>
     </div>
-  )
+  );
 }
 
 export default AppHeader;

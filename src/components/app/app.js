@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import AppHeader from '../app-header';
 import SearchPanel from '../search-panel';
 import TodoList from '../todo-list';
@@ -8,13 +8,18 @@ import ItemAddForm from '../item-add-form';
 import './app.css';
 
 export default class App extends Component {
+  itemAddForm = React.createRef();
   newId = localStorage.getItem('todoItemId') || 100;
   state = {
     todoData : JSON.parse(localStorage.getItem('todoData')) || [],
     term: '',
     filter: 'all'
   }
-  
+
+  componentDidMount() {
+    this.itemAddForm.current.focusItemAddFormInput();
+  }
+
   toggleProperty(arr, id, propName) {
     const idx = arr.findIndex((item) => item.id === id );
     const oldItem = arr[idx];
@@ -61,6 +66,7 @@ export default class App extends Component {
       alert('new item has no value');
       return;
     }
+
     const newItem = this.createTodoItem(label);
     localStorage.setItem('todoItemId', this.newId);
     this.setState(({ todoData }) => {
@@ -127,6 +133,7 @@ export default class App extends Component {
           onToggleImportance={ this.handleToggleImportantce }
           onToggleComplection={ this.handleToggleCompletion } />
         <ItemAddForm
+          ref={ this.itemAddForm }
           onItemAdded={ this.handleClickToAdd }
         />
       </div>
