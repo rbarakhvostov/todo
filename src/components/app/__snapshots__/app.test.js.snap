@@ -79,31 +79,46 @@ exports[`<App /> App renders without crashing 1`] = `
         className="todo-list list-group"
       />
     </TodoList>
-    <ItemAddForm
+    <ForwardRef
       onItemAdded={[Function]}
     >
-      <form
-        className="item-add-form"
-        onSubmit={[Function]}
+      <ItemAddForm
+        innerRef={
+          Object {
+            "current": <input
+              class="item-add-form-input form-control"
+              maxlength="25"
+              placeholder="what should be done"
+              type="text"
+              value=""
+            />,
+          }
+        }
+        onItemAdded={[Function]}
       >
-        <input
-          className="item-add-form-input form-control"
-          maxLength="25"
-          onChange={[Function]}
-          placeholder="what should be done"
-          type="text"
-          value=""
-        />
-        <button
-          className="item-add-form-button btn btn-outline-primary"
-          type="submit"
+        <form
+          className="item-add-form"
+          onSubmit={[Function]}
         >
-          <span
-            className="fa fa-plus"
+          <input
+            className="item-add-form-input form-control"
+            maxLength="25"
+            onChange={[Function]}
+            placeholder="what should be done"
+            type="text"
+            value=""
           />
-        </button>
-      </form>
-    </ItemAddForm>
+          <button
+            className="item-add-form-button btn btn-outline-primary"
+            type="submit"
+          >
+            <span
+              className="fa fa-plus"
+            />
+          </button>
+        </form>
+      </ItemAddForm>
+    </ForwardRef>
   </div>
 </App>
 `;

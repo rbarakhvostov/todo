@@ -1,9 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component, forwardRef} from 'react';
 
 import './item-add-form.css';
 
-export default class ItemAddForm extends Component {
-  itemAddFormInput = React.createRef();
+class ItemAddForm extends Component {
   state = {
     label: ''
   }
@@ -22,16 +21,13 @@ export default class ItemAddForm extends Component {
     });
   }
 
-  focusItemAddFormInput = () => {
-    this.itemAddFormInput.current.focus();
-  }
-
   render() {
+    const { innerRef } = this.props;
     return (
       <form className='item-add-form'
             onSubmit={ this.handleSubmit }>
         <input className='item-add-form-input form-control'
-                ref={ this.itemAddFormInput }
+                ref={ innerRef } 
                 type='text'
                 placeholder='what should be done'
                 value={ this.state.label }
@@ -45,3 +41,7 @@ export default class ItemAddForm extends Component {
     );
   }
 }
+
+export default forwardRef((props, ref) => {
+  return <ItemAddForm innerRef={ ref } { ...props } />
+});

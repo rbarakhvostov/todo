@@ -17,7 +17,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    this.itemAddForm.current.focusItemAddFormInput();
+    this.itemAddForm.current.focus();
   }
 
   toggleProperty(arr, id, propName) {
