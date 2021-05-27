@@ -31,7 +31,7 @@ export default class App extends Component {
     ];
   }
 
-  handleToggleImportantce = (id) => {
+  handleToggleImportance = (id) => {
     this.setState(({ todoData }) => {
       const newTodoData = this.toggleProperty(todoData, id, 'important');
       localStorage.setItem('todoData', JSON.stringify(newTodoData));
@@ -130,8 +130,8 @@ export default class App extends Component {
         <TodoList
           todoItems={ visibleItems }
           onDeleted={ this.handleClickToDelete }
-          onToggleImportance={ this.handleToggleImportantce }
-          onToggleComplection={ this.handleToggleCompletion } />
+          onToggleImportance={ this.handleToggleImportance }
+          onToggleCompletion={ this.handleToggleCompletion } />
         <ItemAddForm
           ref={ this.itemAddForm }
           onItemAdded={ this.handleClickToAdd }

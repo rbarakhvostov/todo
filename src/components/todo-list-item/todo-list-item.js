@@ -4,7 +4,7 @@ import './todo-list-item.css';
 
 const TodoListItem = ({ label, important,
   done, onDeleted,
-  onToggleImportance, onToggleComplection }) => {
+  onToggleImportance, onToggleCompletion }) => {
   
   let classNamesItem = important
                         ? 'todo-list-item important'
@@ -16,7 +16,7 @@ const TodoListItem = ({ label, important,
 
   return (
     <li className={`${classNamesItem} list-group-item`}
-        onClick={ onToggleComplection }>
+        onClick={ onToggleCompletion }>
       <span className={ classNamesItemLabel }>
         { label }
       </span>

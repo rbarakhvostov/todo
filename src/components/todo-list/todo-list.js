@@ -3,7 +3,7 @@ import TodoListItem from '../todo-list-item';
 
 import './todo-list.css';
 
-const TodoList = ({ todoItems, onDeleted, onToggleImportance, onToggleComplection }) => {
+const TodoList = ({ todoItems, onDeleted, onToggleImportance, onToggleCompletion }) => {
   const elements = todoItems.map((item) => {
     const { id, ...itemProps } = item;
     return (
@@ -11,7 +11,7 @@ const TodoList = ({ todoItems, onDeleted, onToggleImportance, onToggleComplectio
         { ...itemProps }
         onDeleted={ () => onDeleted(id) }
         onToggleImportance={ () => onToggleImportance(id) }
-        onToggleComplection={ () => onToggleComplection(id) }
+        onToggleComplection={ () => onToggleCompletion(id) }
         key={id}
       />
     );

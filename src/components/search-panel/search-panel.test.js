@@ -3,7 +3,6 @@ import { mount } from 'enzyme';
 import App from '../app';
 
 describe('<SearchPanel />', () => {
-  
   const wrapper = mount(<App />);
 
   const event1 = { target: { value: 'Create item 1' } };
